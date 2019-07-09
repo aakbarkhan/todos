@@ -6,7 +6,7 @@ let ul=document.querySelector("ul");
 
 // Empty array
 // let arr = [];
-//
+
 let todos=[];
 
 function enterKey(e){
