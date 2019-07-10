@@ -4,10 +4,14 @@ let inText=document.querySelector(".input");
 
 let ul=document.querySelector("ul");
 
+let clearCompleted = document.querySelector('.clear');
+clearCompleted.style.display = 'none'
+
 // Empty array
 // let arr = [];
 
 let todos=[];
+let count = 0;
 
 function enterKey(e){
     if (event.keyCode=== 13){
@@ -33,7 +37,13 @@ function displayitems(data = todos){
         </li>`
         )
 
-    }).join(" ");    
+    }).join(" ");   
+    totalitemleft();
+    clearCompleted.style.display = 'none';
+
+    let strikethrough=document.querySelector("#inp")
+    // inp.classList.add("otherclass");
+    // otherclass.style.text-decoration="line-through";
 
 }
 
@@ -56,6 +66,8 @@ function checkboxed(e){
         let inputId=e.target.dataset.id
         todos[inputId].done=!todos[inputId].done;
         displayitems();
+        totalitemleft();
+        clearCompleted.style.display = 'block';
     }
     
 }
@@ -66,6 +78,7 @@ let arr;
 function completetodos(){
  let arr=todos.filter(todo => todo.done === true);
     displayitems(arr);
+    // clearCompleted.style.display = 'block';
 }
 let complete=document.querySelector(".complete")
 complete.addEventListener("click",completetodos)
@@ -75,6 +88,7 @@ let newarr;
 function showTodosTask(){
     newarr=todos.filter(todo=>todo.done===false);
     displayitems(newarr);
+    
 }
 
 let uncompleted=document.querySelector(".notcomplete")
@@ -93,10 +107,22 @@ allShow.addEventListener("click", ShowAllTheTask)
 function clearCompleteTask(e){
     todos=todos.filter(todo=>todo.done===false);
     displayitems(todos);
+    clearCompleted.style.display = 'block';
     
     }
 let clear=document.querySelector(".clear")
 clear.addEventListener("click",clearCompleteTask)
+
+
+let itemsleft=document.querySelector(".item-left");
+function totalitemleft(){
+   var count=todos.filter(todo=>todo.done===false).length;
+   itemsleft.innerHTML= ` ${count} items left`;
+}
+window.addEventListener("load",totalitemleft);
+
+
+
 
 
 
