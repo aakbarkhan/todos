@@ -12,9 +12,9 @@ allbutton.style.display="none"
 // Empty array
 // let arr = [];
 
-let todos=  [];
-let count = 0;
+let todos= localStorage.getItem('todosdata') ? JSON.parse(localStorage.getItem('todosdata')) :  [];
 
+let count = 0;
 
 function enterKey(e){
     if (event.keyCode=== 13){
@@ -23,7 +23,7 @@ function enterKey(e){
             inText.value="";
             displayitems(); 
             localStorage.setItem("todosdata", JSON.stringify(todos));
-            JSON.parse(localStorage.getItem("todosdata"));
+            const data=JSON.parse(localStorage.getItem("todosdata"));
         }else {
             alert("todos is empty");
         }
@@ -51,6 +51,7 @@ function displayitems(data = todos){
         // inp.classList.add("otherclass");
         // otherclass.style.text-decoration="line-through";
         
+        
     }
     
     inText.addEventListener("keyup", enterKey)
@@ -62,6 +63,9 @@ function displayitems(data = todos){
         if (event.target.className==="btn-delete"){
             todos.splice(btnId,1)
             displayitems();
+            if (todos.length===0){
+                allbutton.style.display="none" 
+            }
         }
         
 }
@@ -114,7 +118,7 @@ function clearCompleteTask(e){
     todos=todos.filter(todo=>todo.done===false);
     displayitems(todos);
     clearCompleted.style.display = 'block';
-    
+    // allbutton.style.display="none"
     }
 let clear=document.querySelector(".clear")
 clear.addEventListener("click",clearCompleteTask)
@@ -135,3 +139,80 @@ window.addEventListener("load",totalitemleft);
 
 
    
+
+//
+array=[1,2,3,45];
+// array.map(n=>n+2);
+
+
+// array=[1,2,3,45];
+// function myMap(array,cb){
+//     let arraynew=[];
+//     for(let i=0;i<array.length;i++){
+//      arraynew.push(cb(array[i],i,array));  
+//     }
+//     return arraynew;
+// }
+
+// function cb(n){
+//    let num=n+2
+// return num;
+// }
+
+array=[1,2,3,45];
+array.filter(n=>n>2);
+
+// array=[1,2,3,45];
+// function myFilter (array,cb){
+//     let newarray=[];
+//     for (let i=0;i<array.length;i++){
+//         if (array[i]>2){
+//             newarray.push(cb(array[i]));
+            
+//         }
+        
+//     }
+//     return newarray;
+// }
+
+// function cb (n){
+//     if(n>2) {
+//     return n;
+// }
+// }
+array=[1,2,3,45,8,10];
+array.reduce((sum,num)=>sum=sum+num);
+
+
+array=[1,2,3,45,8,10];
+function myReduce(acc,cb){
+    for (i=0;i<array.length;i++){
+        cb(array[i],acc);
+        
+    }
+    return acc;
+}
+
+var sum=0;
+function cb(acc,array){
+    sum=acc+array[i];
+    return sum;
+}
+
+var z=10;
+var x=5;
+var y=10;
+function add (){
+    function add1 (){
+        return x+y;
+    }
+    return x+z;
+}
+add();
+
+var str="Hello world";
+str.split(" ");
+
+
+
+
