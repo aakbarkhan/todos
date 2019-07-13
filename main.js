@@ -141,7 +141,7 @@ window.addEventListener("load",totalitemleft);
    
 
 //
-array=[1,2,3,45];
+// array=[1,2,3,45];
 // array.map(n=>n+2);
 
 
@@ -159,8 +159,8 @@ array=[1,2,3,45];
 // return num;
 // }
 
-array=[1,2,3,45];
-array.filter(n=>n>2);
+// array=[1,2,3,45];
+// array.filter(n=>n>2);
 
 // array=[1,2,3,45];
 // function myFilter (array,cb){
@@ -180,38 +180,38 @@ array.filter(n=>n>2);
 //     return n;
 // }
 // }
-array=[1,2,3,45,8,10];
-array.reduce((sum,num)=>sum=sum+num);
+// array=[1,2,3,45,8,10];
+// array.reduce((sum,num)=>sum=sum+num);
 
 
-array=[1,2,3,45,8,10];
-function myReduce(acc,cb){
-    for (i=0;i<array.length;i++){
-        cb(array[i],acc);
+// array=[1,2,3,45,8,10];
+// function myReduce(acc,cb){
+//     for (i=0;i<array.length;i++){
+//         cb(array[i],acc);
         
-    }
-    return acc;
-}
+//     }
+//     return acc;
+// }
 
-var sum=0;
-function cb(acc,array){
-    sum=acc+array[i];
-    return sum;
-}
+// var sum=0;
+// function cb(acc,array){
+//     sum=acc+array[i];
+//     return sum;
+// }
 
-var z=10;
-var x=5;
-var y=10;
-function add (){
-    function add1 (){
-        return x+y;
-    }
-    return x+z;
-}
-add();
+// var z=10;
+// var x=5;
+// var y=10;
+// function add (){
+//     function add1 (){
+//         return x+y;
+//     }
+//     return x+z;
+// }
+// add();
 
-var str="Hello world";
-str.split(" ");
+// var str="Hello world";
+// str.split(" ");
 
 
 
